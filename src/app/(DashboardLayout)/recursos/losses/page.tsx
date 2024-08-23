@@ -16,10 +16,10 @@ const dataMonth = [{ name: 'Mês', perda: 311144, producao: 26536188 }];
 const dataYear = [{ name: 'Ano', perda: 4091940, producao: 318434256 }];
 
 const dataLossTypes = [
-  { name: 'Mal Cheia (Rejeitadas)', perda: 186522 },
-  { name: 'Rejeitadas Stratec 1', perda: 101400 },
-  { name: 'Rejeitadas Stratec 2', perda: 23222 },
-  { name: 'CRASH', perda: 29851 },
+  { name: 'Mal Cheia (Rejeitadas)', perda: 186522, sigla: 'MC' },
+  { name: 'Rejeitadas Stratec 1', perda: 101400, sigla: 'RS1' },
+  { name: 'Rejeitadas Stratec 2', perda: 23222, sigla: 'RS2' },
+  { name: 'CRASH', perda: 29851, sigla: 'CR' },
 ];
 
 // Datas das últimas atualizações
@@ -203,11 +203,10 @@ const Losses = () => {
             <ResponsiveContainer width="100%" height={300} ref={chartRefs.lossTypes}>
               <BarChart data={dataLossTypes}>
                 <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="name" />
+                <XAxis dataKey="sigla" />
                 <YAxis />
                 <Tooltip
                   formatter={(value: any, name: string) => {
-                    // Verifica se o valor é um número antes de formatar
                     const formattedValue =
                       typeof value === 'number' || typeof value === 'bigint'
                         ? new Intl.NumberFormat('pt-BR').format(value)
@@ -219,6 +218,16 @@ const Losses = () => {
                 <Bar dataKey="perda" fill="#ff7300" name="Perdas" />
               </BarChart>
             </ResponsiveContainer>
+            <Typography variant="body2" align="center">
+              <strong>Legendas:</strong> 
+              {dataLossTypes.map((item, index) => (
+                <span key={index}>
+                  {item.sigla}: {item.name}{index < dataLossTypes.length - 1 && '   |   '}
+                  
+                </span>
+                
+              ))}
+            </Typography>
           </Grid>
         </Grid>
       </DashboardCard>

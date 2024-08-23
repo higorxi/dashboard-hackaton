@@ -3,9 +3,10 @@ import { Select, MenuItem } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import DashboardCard from '@/app/(DashboardLayout)/components/shared/DashboardCard';
 import dynamic from "next/dynamic";
+
 const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
 
-const SalesOverview = () => {
+const ProductionOverview = () => {
 
     // select
     const [month, setMonth] = React.useState('1');
@@ -19,6 +20,9 @@ const SalesOverview = () => {
     const primary = theme.palette.primary.main;
     const secondary = theme.palette.secondary.main;
 
+    // Valores mensais simulados para a produção, com variações que resultam em uma média anual de 29 a 30 milhões de latas.
+    const productionData = [2400000, 2500000, 2300000, 2600000, 2400000, 2550000, 2450000, 2500000, 2600000, 2500000, 2550000, 2400000];
+
     // chart
     const optionscolumnchart: any = {
         chart: {
@@ -30,7 +34,7 @@ const SalesOverview = () => {
             },
             height: 370,
         },
-        colors: [primary, secondary],
+        colors: [primary],
         plotOptions: {
             bar: {
                 horizontal: false,
@@ -65,6 +69,11 @@ const SalesOverview = () => {
         },
         yaxis: {
             tickAmount: 4,
+            labels: {
+                formatter: function (val: number) {
+                    return val.toLocaleString(); // Formata os números como string com separadores de milhar
+                }
+            }
         },
         xaxis: {
             categories: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
@@ -77,19 +86,16 @@ const SalesOverview = () => {
             fillSeriesColor: false,
         },
     };
+
     const seriescolumnchart: any = [
         {
-            name: 'Receita deste mês',
-            data: [355, 390, 300, 350, 390, 180, 355, 390, 400, 420, 380, 410],
-        },
-        {
-            name: 'Despesa deste mês',
-            data: [280, 250, 325, 215, 250, 310, 280, 250, 260, 270, 240, 220],
+            name: 'Produção em Latas',
+            data: productionData,
         },
     ];
 
     return (
-        <DashboardCard title="Visão Geral de Vendas" action={
+        <DashboardCard title="Visão Geral de Produção em Latas" action={
             <Select
                 labelId="month-dd"
                 id="month-dd"
@@ -121,4 +127,4 @@ const SalesOverview = () => {
     );
 };
 
-export default SalesOverview;
+export default ProductionOverview;

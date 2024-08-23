@@ -70,8 +70,7 @@ const YearlyBreakup = () => {
     ],
   };
 
-  // Atualize os dados de acordo com a produção em ectolitros
-  const seriescolumnchart: any = [3000, 3500]; // Substitua por valores reais
+  const seriescolumnchart: any = [90, 95.3]; 
 
   return (
     <DashboardCard title="Comparação de Produção em Ectolitros">
@@ -79,7 +78,7 @@ const YearlyBreakup = () => {
 
         <Grid item xs={7} sm={7}>
           <Typography variant="h3" fontWeight="700">
-            {seriescolumnchart[1]} Ectolitros
+            {seriescolumnchart[1]}M Ectolitros
           </Typography>
           <Stack direction="row" spacing={1} mt={1} alignItems="center">
             <Avatar sx={{ bgcolor: successlight, width: 27, height: 27 }}>
