@@ -50,22 +50,7 @@ const Losses = () => {
     setAnchorEl(null);
   };
 
-  const downloadImage = async (fileName: string) => {
-    if (currentChart && chartRefs[currentChart]?.current) {
-      try {
-        const dataUrl = await htmlToImage.toPng(chartRefs[currentChart].current, {
-          backgroundColor: '#ffffff', // Define a cor de fundo branca para evitar fundo transparente
-        });
-        const link = document.createElement('a');
-        link.href = dataUrl;
-        link.download = fileName;
-        document.body.appendChild(link); // Necessário para alguns navegadores
-        link.click();
-        document.body.removeChild(link); // Remove o link após o download
-      } catch (error) {
-        console.error('Erro ao gerar imagem:', error);
-      }
-    }
+  const downloadImage = async () => {
     closeMenu();
   };
 
