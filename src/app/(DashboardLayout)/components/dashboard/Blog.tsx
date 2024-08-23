@@ -69,7 +69,7 @@ const Blog = () => {
                 
               />
             </Typography>
-            <Tooltip title="Add To Cart">
+            <Tooltip title="Visitar noticia">
               <Fab
                 size="small"
                 color="primary"

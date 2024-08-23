@@ -1,4 +1,3 @@
-
 import DashboardCard from '@/app/(DashboardLayout)/components/shared/DashboardCard';
 import {
   Timeline,
@@ -10,11 +9,11 @@ import {
   TimelineContent,
   timelineOppositeContentClasses,
 } from '@mui/lab';
-import { Link, Typography } from '@mui/material';
+import { Typography } from '@mui/material';
 
-const RecentTransactions = () => {
+const RecentTruckDepartures = () => {
   return (
-    <DashboardCard title="Recent Transactions">
+    <DashboardCard title="Últimas Saídas">
       <>
         <Timeline
           className="theme-timeline"
@@ -35,63 +34,59 @@ const RecentTransactions = () => {
           }}
         >
           <TimelineItem>
-            <TimelineOppositeContent>09:30 am</TimelineOppositeContent>
+            <TimelineOppositeContent>22 de agosto, 09:30</TimelineOppositeContent>
             <TimelineSeparator>
               <TimelineDot color="primary" variant="outlined" />
               <TimelineConnector />
             </TimelineSeparator>
-            <TimelineContent>Payment received from John Doe of $385.90</TimelineContent>
+            <TimelineContent>
+              <Typography fontWeight="600">Caminhão #AB-1234</Typography>
+              <Typography>Saiu com SKU: 56789</Typography>
+            </TimelineContent>
           </TimelineItem>
           <TimelineItem>
-            <TimelineOppositeContent>10:00 am</TimelineOppositeContent>
+            <TimelineOppositeContent>21 de agosto, 10:00</TimelineOppositeContent>
             <TimelineSeparator>
               <TimelineDot color="secondary" variant="outlined" />
               <TimelineConnector />
             </TimelineSeparator>
             <TimelineContent>
-              <Typography fontWeight="600">New sale recorded</Typography>{' '}
-              <Link href="/" underline="none">
-                #ML-3467
-              </Link>
+              <Typography fontWeight="600">Caminhão #CD-5678</Typography>
+              <Typography>Saiu com SKU: 12345</Typography>
             </TimelineContent>
           </TimelineItem>
           <TimelineItem>
-            <TimelineOppositeContent>12:00 am</TimelineOppositeContent>
+            <TimelineOppositeContent>20 de agosto, 12:00</TimelineOppositeContent>
             <TimelineSeparator>
               <TimelineDot color="success" variant="outlined" />
               <TimelineConnector />
             </TimelineSeparator>
-            <TimelineContent>Payment was made of $64.95 to Michael</TimelineContent>
+            <TimelineContent>
+              <Typography fontWeight="600">Caminhão #EF-9012</Typography>
+              <Typography>Saiu com SKU: 67890</Typography>
+            </TimelineContent>
           </TimelineItem>
           <TimelineItem>
-            <TimelineOppositeContent>09:30 am</TimelineOppositeContent>
+            <TimelineOppositeContent>19 de agosto, 15:30</TimelineOppositeContent>
             <TimelineSeparator>
               <TimelineDot color="warning" variant="outlined" />
               <TimelineConnector />
             </TimelineSeparator>
             <TimelineContent>
-              <Typography fontWeight="600">New sale recorded</Typography>{' '}
-              <Link href="/" underline="none">
-                #ML-3467
-              </Link>
+              <Typography fontWeight="600">Caminhão #GH-3456</Typography>
+              <Typography>Saiu com SKU: 23456</Typography>
             </TimelineContent>
           </TimelineItem>
           <TimelineItem>
-            <TimelineOppositeContent>09:30 am</TimelineOppositeContent>
+            <TimelineOppositeContent>18 de agosto, 08:45</TimelineOppositeContent>
             <TimelineSeparator>
               <TimelineDot color="error" variant="outlined" />
               <TimelineConnector />
             </TimelineSeparator>
             <TimelineContent>
-              <Typography fontWeight="600">New arrival recorded</Typography>
+              <Typography fontWeight="600">Caminhão #IJ-7890</Typography>
+              <Typography>Saiu com SKU: 34567</Typography>
             </TimelineContent>
-          </TimelineItem>
-          <TimelineItem>
-            <TimelineOppositeContent>12:00 am</TimelineOppositeContent>
-            <TimelineSeparator>
-              <TimelineDot color="success" variant="outlined" />
-            </TimelineSeparator>
-            <TimelineContent>Payment Received</TimelineContent>
           </TimelineItem>
         </Timeline>
       </>
@@ -99,4 +94,4 @@ const RecentTransactions = () => {
   );
 };
 
-export default RecentTransactions;
+export default RecentTruckDepartures;

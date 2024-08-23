@@ -36,19 +36,19 @@ const Menuitems = [
   },
   {
     id: uniqueId(),
+    title: "Percas",
+    icon: IconChartPie, 
+    href: "/recursos/losses",
+  },
+  {
+    id: uniqueId(),
     title: "Documentação",
     icon: IconFileText, 
     href: "/recursos/documentation",
   },
   {
     id: uniqueId(),
-    title: "Relatórios",
-    icon: IconChartPie, 
-    href: "/recursos/reports",
-  },
-  {
-    id: uniqueId(),
-    title: "Notas",
+    title: "Lotes",
     icon: IconClipboard, 
     href: "/recursos/notes",
   },

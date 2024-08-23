@@ -1,4 +1,3 @@
-
 import dynamic from "next/dynamic";
 const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
 import { useTheme } from '@mui/material/styles';
@@ -7,13 +6,13 @@ import { IconArrowDownRight, IconCurrencyDollar } from '@tabler/icons-react';
 import DashboardCard from '@/app/(DashboardLayout)/components/shared/DashboardCard';
 
 const MonthlyEarnings = () => {
-  // chart color
+  // Cor do gráfico
   const theme = useTheme();
   const secondary = theme.palette.secondary.main;
   const secondarylight = '#f5fcff';
-  const errorlight = '#fdede8';
+  const errorlight = '#fdede8'; // Vermelho claro para redução
 
-  // chart
+  // Configuração do gráfico
   const optionscolumnchart: any = {
     chart: {
       type: 'area',
@@ -48,15 +47,15 @@ const MonthlyEarnings = () => {
     {
       name: '',
       color: secondary,
-      data: [25, 66, 20, 40, 12, 58, 20],
+      data: [30, 60, 25, 45, 15, 50, 25],
     },
   ];
 
   return (
     <DashboardCard
-      title="Monthly Earnings"
+      title="Gap entre Latas Compradas e Contadas"
       action={
-        <Fab color="secondary" size="medium" sx={{color: '#ffffff'}}>
+        <Fab color="secondary" size="large" sx={{color: '#ffffff'}}>
           <IconCurrencyDollar width={24} />
         </Fab>
       }
@@ -66,19 +65,22 @@ const MonthlyEarnings = () => {
     >
       <>
         <Typography variant="h3" fontWeight="700" mt="-20px">
-          $6,820
+          327 latas 
         </Typography>
         <Stack direction="row" spacing={1} my={1} alignItems="center">
           <Avatar sx={{ bgcolor: errorlight, width: 27, height: 27 }}>
             <IconArrowDownRight width={20} color="#FA896B" />
           </Avatar>
           <Typography variant="subtitle2" fontWeight="600">
-            +9%
+            -12% 
           </Typography>
           <Typography variant="subtitle2" color="textSecondary">
-            last year
+            em comparação ao ano passado 
           </Typography>
         </Stack>
+        <Typography variant="subtitle2" color="textSecondary" mt={1}>
+          Aproximadamente 39 latas a menos do que o ano passado 
+        </Typography>
       </>
     </DashboardCard>
   );

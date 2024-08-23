@@ -5,7 +5,6 @@ import DashboardCard from '@/app/(DashboardLayout)/components/shared/DashboardCa
 import dynamic from "next/dynamic";
 const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
 
-
 const SalesOverview = () => {
 
     // select
@@ -48,7 +47,7 @@ const SalesOverview = () => {
             width: 5,
             lineCap: "butt",
             colors: ["transparent"],
-          },
+        },
         dataLabels: {
             enabled: false,
         },
@@ -68,7 +67,7 @@ const SalesOverview = () => {
             tickAmount: 4,
         },
         xaxis: {
-            categories: ['16/08', '17/08', '18/08', '19/08', '20/08', '21/08', '22/08', '23/08'],
+            categories: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
             axisBorder: {
                 show: false,
             },
@@ -80,18 +79,17 @@ const SalesOverview = () => {
     };
     const seriescolumnchart: any = [
         {
-            name: 'Eanings this month',
-            data: [355, 390, 300, 350, 390, 180, 355, 390],
+            name: 'Receita deste mês',
+            data: [355, 390, 300, 350, 390, 180, 355, 390, 400, 420, 380, 410],
         },
         {
-            name: 'Expense this month',
-            data: [280, 250, 325, 215, 250, 310, 280, 250],
+            name: 'Despesa deste mês',
+            data: [280, 250, 325, 215, 250, 310, 280, 250, 260, 270, 240, 220],
         },
     ];
 
     return (
-
-        <DashboardCard title="Visão geral de vendas" action={
+        <DashboardCard title="Visão Geral de Vendas" action={
             <Select
                 labelId="month-dd"
                 id="month-dd"
@@ -99,9 +97,18 @@ const SalesOverview = () => {
                 size="small"
                 onChange={handleChange}
             >
-                <MenuItem value={1}>Junho 2024</MenuItem>
-                <MenuItem value={2}>Julho 2024</MenuItem>
-                <MenuItem value={3}>Agosto 2024</MenuItem>
+                <MenuItem value={1}>Janeiro 2024</MenuItem>
+                <MenuItem value={2}>Fevereiro 2024</MenuItem>
+                <MenuItem value={3}>Março 2024</MenuItem>
+                <MenuItem value={4}>Abril 2024</MenuItem>
+                <MenuItem value={5}>Maio 2024</MenuItem>
+                <MenuItem value={6}>Junho 2024</MenuItem>
+                <MenuItem value={7}>Julho 2024</MenuItem>
+                <MenuItem value={8}>Agosto 2024</MenuItem>
+                <MenuItem value={9}>Setembro 2024</MenuItem>
+                <MenuItem value={10}>Outubro 2024</MenuItem>
+                <MenuItem value={11}>Novembro 2024</MenuItem>
+                <MenuItem value={12}>Dezembro 2024</MenuItem>
             </Select>
         }>
             <Chart
