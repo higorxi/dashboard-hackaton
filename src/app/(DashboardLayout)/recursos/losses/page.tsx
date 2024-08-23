@@ -84,7 +84,7 @@ const Losses = () => {
               <DownloadIcon />
             </IconButton>
             <Menu anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={closeMenu}>
-              <MenuItem onClick={() => downloadImage('grafico-dia.png')}>Baixar PNG</MenuItem>
+              <MenuItem onClick={() => downloadImage()}>Baixar PNG</MenuItem>
               <MenuItem onClick={() => downloadCsv(dataDay, 'dados-dia.csv')}>Baixar CSV</MenuItem>
             </Menu>
             <ResponsiveContainer width="100%" height={300} ref={chartRefs.day}>
