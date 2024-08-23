@@ -120,7 +120,7 @@ const Losses = () => {
               <DownloadIcon />
             </IconButton>
             <Menu anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={closeMenu}>
-              <MenuItem onClick={() => downloadImage('grafico-mes.png')}>Baixar PNG</MenuItem>
+              <MenuItem onClick={() => downloadImage()}>Baixar PNG</MenuItem>
               <MenuItem onClick={() => downloadCsv(dataMonth, 'dados-mes.csv')}>Baixar CSV</MenuItem>
             </Menu>
             <ResponsiveContainer width="100%" height={300} ref={chartRefs.month}>
@@ -156,7 +156,7 @@ const Losses = () => {
               <DownloadIcon />
             </IconButton>
             <Menu anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={closeMenu}>
-              <MenuItem onClick={() => downloadImage('grafico-ano.png')}>Baixar PNG</MenuItem>
+              <MenuItem onClick={() => downloadImage()}>Baixar PNG</MenuItem>
               <MenuItem onClick={() => downloadCsv(dataYear, 'dados-ano.csv')}>Baixar CSV</MenuItem>
             </Menu>
             <ResponsiveContainer width="100%" height={300} ref={chartRefs.year}>
@@ -197,7 +197,7 @@ const Losses = () => {
               <DownloadIcon />
             </IconButton>
             <Menu anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={closeMenu}>
-              <MenuItem onClick={() => downloadImage('grafico-tipos-perda.png')}>Baixar PNG</MenuItem>
+              <MenuItem onClick={() => downloadImage()}>Baixar PNG</MenuItem>
               <MenuItem onClick={() => downloadCsv(dataLossTypes, 'dados-tipos-perda.csv')}>Baixar CSV</MenuItem>
             </Menu>
             <ResponsiveContainer width="100%" height={300} ref={chartRefs.lossTypes}>
